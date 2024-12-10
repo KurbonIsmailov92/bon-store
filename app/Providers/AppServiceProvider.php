@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use Carbon\CarbonInterval;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Events\QueryExecuted;
+use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,7 +33,12 @@ class AppServiceProvider extends ServiceProvider
             // TODO
         });
 
-        //TODO
+        $kernel = app(Kernel::class);
+        $kernel->whenRequestLifecycleIsLongerThan(
+            CarbonInterval::seconds(4),
+            function () {
 
+            }
+        );
     }
 }

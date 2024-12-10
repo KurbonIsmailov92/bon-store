@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', function () {
-    return view('index');
+    logger()->channel('telegram')->debug('Hello log');
+    return view('welcome');
 });
 
 

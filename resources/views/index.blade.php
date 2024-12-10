@@ -8,9 +8,10 @@
     <title>Home</title>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/sass/main.sass'])
 </head>
-<body class="bg-black">
-<div class="text-white hover:text-blue-500">
-    <button class="border border-blue-800 hover:bg-white ">Hello</button>
+<body>
+
+<div class=" flex flex-center hover:border-red-800 hover:duration-500">
+    <button class="text-white hover:text-red-500 border border-black hover:border-red-800 ">Hello</button>
 </div>
 
 </body>
