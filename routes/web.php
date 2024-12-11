@@ -7,11 +7,6 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', function () {
-    dump(\App\Models\Product::query()
-    ->select('*')
-    ->with(['categories', 'brand'])
-    ->where('id', 1)
-    ->get());
     return view('welcome');
 });
 
