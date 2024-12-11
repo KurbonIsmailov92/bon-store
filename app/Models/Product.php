@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Traits\Models\HasSlug;
 use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,17 +12,9 @@ class Product extends Model
 {
     /** @use HasFactory<ProductFactory> */
     use HasFactory;
+    use HasSlug;
 
     protected $guarded = [];
-
-    protected static function boot(): void
-    {
-        parent::boot();
-        //TODO
-        static::creating(function (Product $product) {
-            $product->slug = $product->slug ?? str($product->title)->slug();
-        });
-    }
 
     public function brand(): BelongsTo
     {

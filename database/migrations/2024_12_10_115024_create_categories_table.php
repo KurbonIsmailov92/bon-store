@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('title');
             $table->timestamps();
         });
@@ -25,7 +25,6 @@ return new class extends Migration {
     {
         if (app()->isLocal()) {
             Schema::dropIfExists('categories');
-            //TODO stab
         }
     }
 };

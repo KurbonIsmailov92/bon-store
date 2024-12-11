@@ -8,22 +8,19 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();
-            $table->unsignedInteger('price')->default('0');
+            $table->unsignedInteger('price')->default(0);
             $table->foreignIdFor(Brand::class)
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-
             $table->timestamps();
         });
 
@@ -41,10 +38,6 @@ return new class extends Migration {
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    //TODO stab
     public function down(): void
     {
         if (app()->isLocal()) {
