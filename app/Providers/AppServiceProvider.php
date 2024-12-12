@@ -15,8 +15,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Model::preventLazyLoading(!app()->isProduction());
-        Model::preventsSilentlyDiscardingAttributes(!app()->isProduction());
+        Model::shouldBeStrict(!app()->isProduction());
 
         if (app()->isProduction()) {
             DB::listen(function ($query) {
