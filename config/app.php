@@ -1,7 +1,5 @@
 <?php
 
-use App\Providers\TestingServiceProvider;
-
 return [
 
     /*
@@ -149,7 +147,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        TestingServiceProvider::class,
+        \App\Providers\TestingServiceProvider::class,
+        \App\Providers\ViewServiceProvider::class,
+        \App\Providers\TelescopeServiceProvider::class
     ],
 
 ];
