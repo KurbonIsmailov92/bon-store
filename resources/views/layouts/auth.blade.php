@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>@yield('title', env('APP_NAME'))</title>
+    <link rel="icon" href="{{ \Illuminate\Support\Facades\Vite::image('logo.png') }}" type="image/png">
+
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/sass/main.sass'])
 </head>
 <body class="antialiased">
@@ -14,7 +16,7 @@
         <!-- Page heading -->
         <div class="text-center">
             <a href="{{route('home')}}" class="inline-block" rel="home">
-                <img src="{{\Illuminate\Support\Facades\Vite::image('logo.png')}}" class="w-[148px] md:w-[201px] h-[50px] md:h-[201px]" alt="Bon-store">
+                <img src="{{\Illuminate\Support\Facades\Vite::image('logo.png')}}" class="w-[148px] md:w-[201px] h-[148px] md:h-[201px]" alt="Bon-store">
             </a>
         </div>
 
