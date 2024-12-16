@@ -2,7 +2,8 @@
 @section('title') Забыли пароль @endsection
 @section('content')
 
-    <x-forms.auth-forms title="Забыли пароль" action="{{route('forgot.handle')}}" method="POST">
+    <x-forms.auth-forms title="Забыли пароль" action="{{route('password.request')}}" method="POST">
+        @csrf
 
         <x-forms.text-input
             name="email"
