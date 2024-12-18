@@ -4,11 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', env())</title>
-    <link rel="icon" href="https://www.svgrepo.com/show/30963/cookie.svg" type="image/svg+xml">
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/sass/main.sass'])
+    <title>@yield('title', env('APP_NAME'))</title>
+    <link rel="icon" href="{{ \Illuminate\Support\Facades\Vite::image('logo.png') }}" type="image/png">
+
+    @vite(['resources/css/app.css', 'resources/sass/main.sass', 'resources/js/app.js'])
 </head>
 <body class="antialiased">
+@include('shared.flash')
+
+@include('shared.header')
+<main class="py-16 lg:py-20">
+    <div class="container">
+        @yield('content')
+    </div>
+</main>
+
+@include('shared.footer')
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </body>
 </html>
 
