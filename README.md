@@ -2,5 +2,3 @@
 
     - php artisan store:install
 
-
-# Deploy
